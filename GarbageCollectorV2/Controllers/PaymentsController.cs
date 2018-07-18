@@ -17,8 +17,8 @@ namespace GarbageCollectorV2.Controllers
         // GET: Payments
         public ActionResult Index()
         {
-            var payments = db.Payments.Include(p => p.Customer);
-            return View(payments.ToList());
+            var payment = db.Payment.Include(p => p.Customer);
+            return View(payment.ToList());
         }
 
         // GET: Payments/Details/5
@@ -28,7 +28,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payment payment = db.Payments.Find(id);
+            Payment payment = db.Payment.Find(id);
             if (payment == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace GarbageCollectorV2.Controllers
         // GET: Payments/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace GarbageCollectorV2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Payments.Add(payment);
+                db.Payment.Add(payment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", payment.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName", payment.CustomerId);
             return View(payment);
         }
 
@@ -68,12 +68,12 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payment payment = db.Payments.Find(id);
+            Payment payment = db.Payment.Find(id);
             if (payment == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", payment.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName", payment.CustomerId);
             return View(payment);
         }
 
@@ -90,7 +90,7 @@ namespace GarbageCollectorV2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", payment.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName", payment.CustomerId);
             return View(payment);
         }
 
@@ -101,7 +101,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Payment payment = db.Payments.Find(id);
+            Payment payment = db.Payment.Find(id);
             if (payment == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace GarbageCollectorV2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Payment payment = db.Payments.Find(id);
-            db.Payments.Remove(payment);
+            Payment payment = db.Payment.Find(id);
+            db.Payment.Remove(payment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

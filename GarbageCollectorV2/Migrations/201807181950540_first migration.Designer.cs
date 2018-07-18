@@ -13,7 +13,7 @@ namespace GarbageCollectorV2.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201807181753362_first migration"; }
+            get { return "201807181950540_first migration"; }
         }
         
         string IMigrationMetadata.Source

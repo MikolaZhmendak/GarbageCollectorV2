@@ -12,13 +12,13 @@ namespace GarbageCollectorV2.Models
         [Key]
         public int ScheduleId { get; set; }
 
-        [ForeignKey("Customer")]
+        [Required]
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        [ForeignKey("CustomerId")]
+        public virtual Customer Customer { get; set; }
 
-        [Display(Name = "Pick Up Day")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public string PickUpDay { get; set; }
+
+        public DayOfTheWeek PickUpDay { get; set; }
 
         [Display(Name = "Pick Up Frequency")]
         public string PickUpFrequency { get; set; }
@@ -31,8 +31,18 @@ namespace GarbageCollectorV2.Models
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? RestartDate { get; set; }
 
-        [Display(Name = "One Time Extra Pick-up")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? ExtraPickUp { get; set; }
+       
+        public DayOfTheWeek ExtraPickUp { get; set; }
     }
-}
+
+        public enum DayOfTheWeek
+        {
+            Monday,
+            Thuesday,
+            Wednesday,
+            Thursday,
+            Friday,
+            Saturday,
+            Sunday,
+        }
+    }

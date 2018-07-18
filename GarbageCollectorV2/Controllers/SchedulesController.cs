@@ -17,8 +17,8 @@ namespace GarbageCollectorV2.Controllers
         // GET: Schedules
         public ActionResult Index()
         {
-            var schedules = db.Schedules.Include(s => s.Customer);
-            return View(schedules.ToList());
+            var schedule = db.Schedule.Include(s => s.Customer);
+            return View(schedule.ToList());
         }
 
         // GET: Schedules/Details/5
@@ -28,7 +28,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Schedule schedule = db.Schedules.Find(id);
+            Schedule schedule = db.Schedule.Find(id);
             if (schedule == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace GarbageCollectorV2.Controllers
         // GET: Schedules/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName");
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName");
             return View();
         }
 
@@ -52,12 +52,12 @@ namespace GarbageCollectorV2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Schedules.Add(schedule);
+                db.Schedule.Add(schedule);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", schedule.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName", schedule.CustomerId);
             return View(schedule);
         }
 
@@ -68,12 +68,12 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Schedule schedule = db.Schedules.Find(id);
+            Schedule schedule = db.Schedule.Find(id);
             if (schedule == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", schedule.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName", schedule.CustomerId);
             return View(schedule);
         }
 
@@ -90,7 +90,7 @@ namespace GarbageCollectorV2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "FirstName", schedule.CustomerId);
+            ViewBag.CustomerId = new SelectList(db.Customer, "CustomerId", "FirstName", schedule.CustomerId);
             return View(schedule);
         }
 
@@ -101,7 +101,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Schedule schedule = db.Schedules.Find(id);
+            Schedule schedule = db.Schedule.Find(id);
             if (schedule == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace GarbageCollectorV2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Schedule schedule = db.Schedules.Find(id);
-            db.Schedules.Remove(schedule);
+            Schedule schedule = db.Schedule.Find(id);
+            db.Schedule.Remove(schedule);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -13,8 +13,9 @@ namespace GarbageCollectorV2.Models
         [Key]
         public int PaymentId { get; set; }
 
-        [ForeignKey("Customer")]
+        [Required]
         public int CustomerId { get; set; }
+        [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }
 
         [Display(Name = "Amount Due")]

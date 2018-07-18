@@ -30,11 +30,11 @@ namespace GarbageCollectorV2.Models
             return new ApplicationDbContext();
         }
        
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Customer { get; set; }
 
-        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
 
-        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Payment> Payment { get; set; }
 
         public DbSet<Employer> Employer { get; set; }
     }

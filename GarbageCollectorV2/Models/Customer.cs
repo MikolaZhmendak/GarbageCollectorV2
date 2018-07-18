@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,9 +12,6 @@ namespace GarbageCollectorV2.Models
 
         [Key]
         public int CustomerId { get; set; }
-
-        //[Display(Name = "User Name")]
-        //public string UserName { get; set; }
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -34,8 +32,6 @@ namespace GarbageCollectorV2.Models
         public string PhoneNumber { get; set; }
 
 
-        //public List<Customer> Customers { get; set; }
-        public ApplicationUser User { get; set; }
 
     }
 }

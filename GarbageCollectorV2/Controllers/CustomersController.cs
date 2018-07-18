@@ -15,6 +15,7 @@ namespace GarbageCollectorV2.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
 
+
         public ActionResult CustomerHome()
         {
             return View();
@@ -22,7 +23,7 @@ namespace GarbageCollectorV2.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Customer.ToList());
         }
 
         // GET: Customers/Details/5
@@ -32,7 +33,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = db.Customer.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -51,24 +52,18 @@ namespace GarbageCollectorV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
+                db.Customer.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Welcome");
+                return RedirectToAction("Index");
             }
 
             return View(customer);
         }
 
-
-        public ActionResult Welcome()
-        {
-            return View();
-        }
-        
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -76,7 +71,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = db.Customer.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -89,7 +84,7 @@ namespace GarbageCollectorV2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber,HasPaid")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +102,7 @@ namespace GarbageCollectorV2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
+            Customer customer = db.Customer.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -120,8 +115,8 @@ namespace GarbageCollectorV2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Customer customer = db.Customer.Find(id);
+            db.Customer.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
