@@ -14,6 +14,11 @@ namespace GarbageCollectorV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        public ActionResult CustomerHome()
+        {
+            return View();
+        }
         // GET: Customers
         public ActionResult Index()
         {
@@ -52,12 +57,18 @@ namespace GarbageCollectorV2.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Welcome");
             }
 
             return View(customer);
         }
 
+
+        public ActionResult Welcome()
+        {
+            return View();
+        }
+        
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {

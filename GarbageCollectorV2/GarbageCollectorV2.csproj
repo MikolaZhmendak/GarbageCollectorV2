@@ -205,17 +205,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807181439221_InitialCreate.cs" />
-    <Compile Include="Migrations\201807181439221_InitialCreate.Designer.cs">
-      <DependentUpon>201807181439221_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201807181753362_first migration.cs" />
+    <Compile Include="Migrations\201807181753362_first migration.Designer.cs">
+      <DependentUpon>201807181753362_first migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807181601575_first.cs" />
-    <Compile Include="Migrations\201807181601575_first.Designer.cs">
-      <DependentUpon>201807181601575_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807181607253_first migration.cs" />
-    <Compile Include="Migrations\201807181607253_first migration.Designer.cs">
-      <DependentUpon>201807181607253_first migration.cs</DependentUpon>
+    <Compile Include="Migrations\201807181757556_first migration agian.cs" />
+    <Compile Include="Migrations\201807181757556_first migration agian.Designer.cs">
+      <DependentUpon>201807181757556_first migration agian.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -304,6 +300,8 @@
     <Content Include="Views\Payments\Details.cshtml" />
     <Content Include="Views\Payments\Edit.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Customers\Welcome.cshtml" />
+    <Content Include="Views\Customers\CustomerHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,14 +315,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807181439221_InitialCreate.resx">
-      <DependentUpon>201807181439221_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807181753362_first migration.resx">
+      <DependentUpon>201807181753362_first migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807181601575_first.resx">
-      <DependentUpon>201807181601575_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807181607253_first migration.resx">
-      <DependentUpon>201807181607253_first migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807181757556_first migration agian.resx">
+      <DependentUpon>201807181757556_first migration agian.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

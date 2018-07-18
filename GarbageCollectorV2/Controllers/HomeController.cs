@@ -39,7 +39,7 @@ namespace GarbageCollectorV2.Controllers
             role = User.IsInRole("Employer");
             if (role)
             {
-                return RedirectToAction("Home", "Employers");
+                return RedirectToAction("EmployerHome", "Employers");
             }
 
             return RedirectToAction("Index", "Home");

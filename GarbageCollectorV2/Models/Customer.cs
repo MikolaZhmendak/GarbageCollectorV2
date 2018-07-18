@@ -33,8 +33,6 @@ namespace GarbageCollectorV2.Models
         [Display(Name = "Phone#")]
         public string PhoneNumber { get; set; }
 
-        [Display(Name = "Bill Current")]
-        public bool HasPaid { get; set; }
 
         //public List<Customer> Customers { get; set; }
         public ApplicationUser User { get; set; }
