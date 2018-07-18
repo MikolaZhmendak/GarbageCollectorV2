@@ -29,5 +29,11 @@ namespace GarbageCollectorV2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GarbageCollectorV2.Models.Customer> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<GarbageCollectorV2.Models.Schedule> Schedules { get; set; }
+
+        public System.Data.Entity.DbSet<GarbageCollectorV2.Models.Payment> Payments { get; set; }
     }
 }

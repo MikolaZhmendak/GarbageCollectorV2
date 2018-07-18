@@ -1,0 +1,66 @@
+﻿@model GarbageCollectorV2.Models.Schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpFrequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpFrequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StopDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StopDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtraPickUp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtraPickUp)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ScheduleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
