@@ -26,5 +26,26 @@ namespace GarbageCollectorV2.Controllers
 
             return View();
         }
+
+        public ActionResult Home()
+        {
+            bool role = User.IsInRole("Customer");
+            if (role)
+            {
+                return RedirectToAction("CustomerHome", "Customers");
+
+            }
+           
+            role = User.IsInRole("Employer");
+            if (role)
+            {
+                return RedirectToAction("Home", "Employers");
+            }
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+
     }
 }
