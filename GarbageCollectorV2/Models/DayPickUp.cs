@@ -12,9 +12,6 @@ namespace GarbageCollectorV2.Models
 
         public int DayPickUpId { get; set; }
 
-        public int TodayPickUpId { get; set; }
-
-
         public string FirstName { get; set; }
 
 
@@ -27,7 +24,6 @@ namespace GarbageCollectorV2.Models
 
         public string PickUpDate { get; set; }
 
-        [Display(Name = "Phone#")]
-        public string PhoneNumber { get; set; }
+       
     }
 }

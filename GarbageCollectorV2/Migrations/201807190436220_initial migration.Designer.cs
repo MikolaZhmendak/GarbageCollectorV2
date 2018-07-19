@@ -7,13 +7,13 @@ namespace GarbageCollectorV2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class newmigration2 : IMigrationMetadata
+    public sealed partial class initialmigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newmigration2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialmigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807190207544_new migration 2"; }
+            get { return "201807190436220_initial migration"; }
         }
         
         string IMigrationMetadata.Source
