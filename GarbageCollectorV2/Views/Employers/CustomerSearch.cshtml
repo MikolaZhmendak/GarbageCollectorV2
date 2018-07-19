@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GarbageCollectorV2.Models.DayPickUp>
+
+
+<div class="container">
+    <b>Search By :</b>
+    <select id="SearchBy">
+        <option value="PickUpDay">PickUpDay</option>
+    </select><br /><br />
+
+    @Html.TextBox("Search") <input type="submit" id="SearchBtn" value="Search" /> <br /> <br />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Street Address</th>
+                <th>Zip Code</th>
+                <th>Pick Up Day</th>
+
+
+            </tr>
+        </thead>
+        <tbody id="DataSearching">
+            @foreach (var Item in Model)
+            {
+                <tr>
+                    <td>@Item.FirstName</td>
+                    <td>@Item.LastName</td>
+                    <td>@Item.StreetAddress</td>
+                    <td>@Item.ZipCode</td>
+                    <td>@Item.PickUpDate</td>
+
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#SearchBtn").click(function () {
+            var SearchBy = $("#SearchBy").val();
+            var SearchValue = $("#Search").val();
+            var SetData = $("#DataSearching");
+            SetData.html("");
+            $.ajax({
+                type: "get",
+                url: "/Customers/GetSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue,
+                contentType: "html",
+                success: function (result) {
+                    if (result.lenght == 0) {
+                        SetData.append('<tr style="color:red"><td colspan="3">No Match Data</td></tr>')
+
+                    }
+                    else {
+                        $.each(result, function (index, value) {
+                            var Data = "<tr>" +
+                                "<td>" + value.FirstName + "</td>" +
+                                "<td>" + value.LastName + "</td>" +
+                                "<td>" + value.StreetAddress + "</td>" +
+                                "<td>" + value.ZipCode + "</td>" +
+                                "<td>" + value.PickUpDay + "</td>" +
+                                "</tr>";
+                            SetData.append(Data);
+                        });
+                    }
+                }
+             });
+        });
+    });
+</script>

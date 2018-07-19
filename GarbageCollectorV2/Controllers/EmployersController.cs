@@ -19,9 +19,38 @@ namespace GarbageCollectorV2.Controllers
             return View();
 
         }
-            
 
-        
+        public ActionResult CustomerSearch()
+        {
+            return View(db.DayPickUp.ToList());
+        }
+
+        public JsonResult GetSearchingData(string SearchBy, string SearchValue)
+        {
+            List<DayPickUp> DayPick = new List<DayPickUp>();
+            if (SearchBy == "PickUpDay")
+            {
+                try
+                {
+                    string Day = SearchValue;
+                    DayPick = db.DayPickUp.Where(x => x.PickUpDate == Day || SearchValue == null).ToList();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("{0} Is Not A Valid ZipCode", SearchValue);
+
+                }
+                return Json(DayPick, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                DayPick = db.DayPickUp.Where(x => x.PickUpDate.Contains(SearchValue) || SearchValue == null).ToList();
+                return Json(DayPick, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
         public ActionResult EmployerHome()
         {
             List<TodayPickUp> PickUpList = new List<TodayPickUp>();

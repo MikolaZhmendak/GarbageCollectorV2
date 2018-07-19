@@ -314,6 +314,7 @@
     <Content Include="Views\Employers\Index.cshtml" />
     <Content Include="Views\Employers\EmployerHome.cshtml" />
     <Content Include="Views\Employers\AllCustomers.cshtml" />
+    <Content Include="Views\Employers\CustomerSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
