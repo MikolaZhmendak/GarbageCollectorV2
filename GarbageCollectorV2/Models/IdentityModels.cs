@@ -37,5 +37,7 @@ namespace GarbageCollectorV2.Models
         public DbSet<Payment> Payment { get; set; }
 
         public DbSet<Employer> Employer { get; set; }
+
+        public DbSet<Budget> Budget { get; set; }
     }
 }

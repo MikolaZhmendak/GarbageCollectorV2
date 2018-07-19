@@ -205,16 +205,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807181950540_first migration.cs" />
-    <Compile Include="Migrations\201807181950540_first migration.Designer.cs">
-      <DependentUpon>201807181950540_first migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807181954080_first migration 2.cs" />
-    <Compile Include="Migrations\201807181954080_first migration 2.Designer.cs">
-      <DependentUpon>201807181954080_first migration 2.cs</DependentUpon>
+    <Compile Include="Migrations\201807190048531_initial.cs" />
+    <Compile Include="Migrations\201807190048531_initial.Designer.cs">
+      <DependentUpon>201807190048531_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -302,6 +299,7 @@
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Customers\CustomerHome.cshtml" />
     <Content Include="Views\Customers\Welcome.cshtml" />
+    <Content Include="Views\Customers\Budget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -315,11 +313,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807181950540_first migration.resx">
-      <DependentUpon>201807181950540_first migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807181954080_first migration 2.resx">
-      <DependentUpon>201807181954080_first migration 2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807190048531_initial.resx">
+      <DependentUpon>201807190048531_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

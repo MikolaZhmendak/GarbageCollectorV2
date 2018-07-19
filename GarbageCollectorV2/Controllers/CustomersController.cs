@@ -14,7 +14,12 @@ namespace GarbageCollectorV2.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
+        public ActionResult Budget()
+        {
+            List<Budget> BudgetList = new List<Budget>();
+            BudgetList = db.Budget.ToList();
+            return View(BudgetList);
+        }
 
         public ActionResult CustomerHome()
         {
