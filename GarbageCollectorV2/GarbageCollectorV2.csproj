@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
@@ -205,19 +206,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807190048531_initial.cs" />
-    <Compile Include="Migrations\201807190048531_initial.Designer.cs">
-      <DependentUpon>201807190048531_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201807190207544_new migration 2.cs" />
+    <Compile Include="Migrations\201807190207544_new migration 2.Designer.cs">
+      <DependentUpon>201807190207544_new migration 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807190242594_second migration.cs" />
+    <Compile Include="Migrations\201807190242594_second migration.Designer.cs">
+      <DependentUpon>201807190242594_second migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807190430311_third migration.cs" />
+    <Compile Include="Migrations\201807190430311_third migration.Designer.cs">
+      <DependentUpon>201807190430311_third migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\DayPickUp.cs" />
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\TodayPickUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -300,6 +311,13 @@
     <Content Include="Views\Customers\CustomerHome.cshtml" />
     <Content Include="Views\Customers\Welcome.cshtml" />
     <Content Include="Views\Customers\Budget.cshtml" />
+    <Content Include="Views\Employers\Create.cshtml" />
+    <Content Include="Views\Employers\Delete.cshtml" />
+    <Content Include="Views\Employers\Details.cshtml" />
+    <Content Include="Views\Employers\Edit.cshtml" />
+    <Content Include="Views\Employers\Index.cshtml" />
+    <Content Include="Views\Employers\EmployerHome.cshtml" />
+    <Content Include="Views\Employers\AllCustomers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,8 +331,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807190048531_initial.resx">
-      <DependentUpon>201807190048531_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807190207544_new migration 2.resx">
+      <DependentUpon>201807190207544_new migration 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190242594_second migration.resx">
+      <DependentUpon>201807190242594_second migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190430311_third migration.resx">
+      <DependentUpon>201807190430311_third migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

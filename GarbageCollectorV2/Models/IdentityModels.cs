@@ -29,7 +29,10 @@ namespace GarbageCollectorV2.Models
         {
             return new ApplicationDbContext();
         }
-       
+
+        public DbSet<DayPickUp> DayPickUp { get; set; }
+
+        public DbSet<TodayPickUp> TodayPickUp { get; set; }
         public DbSet<Customer> Customer { get; set; }
 
         public DbSet<Schedule> Schedule { get; set; }

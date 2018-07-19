@@ -19,11 +19,11 @@
 
         @if (User.IsInRole("Employer"))
         {
-            <li> @Html.ActionLink("Home", "CustomerHome", "Customers", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
-            <li>@Html.ActionLink("Search", "Search", "Customers", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
-            <li>@Html.ActionLink("CustomerOrders", "Create", "CustomerOrders", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
-            //   <li>@Html.ActionLink("Payment", "Index", "Payments", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
-            <li>@Html.ActionLink("History", "Index", "History", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+            <li> @Html.ActionLink("Home", "EmployerHome", "Employers", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Search By Day", "CustomerSearch", "Employers", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+            <li>@Html.ActionLink("Customer Profile", "Profile", "Employers", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+            <li>@Html.ActionLink("All Customers", "AllCustomers", "Employers", routeValues: null, htmlAttributes: new { id = "home", @class = "nav-link" })</li>
+
 
         }
         <li>

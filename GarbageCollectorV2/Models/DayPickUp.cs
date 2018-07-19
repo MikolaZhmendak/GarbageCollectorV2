@@ -6,21 +6,28 @@ using System.Web;
 
 namespace GarbageCollectorV2.Models
 {
-    public class Employer
-    { 
+    public class DayPickUp
+    {
         [Key]
-        public int EmployerId { get; set; } 
 
-        [Display(Name = "First Name")]
+        public int DayPickUpId { get; set; }
+
+        public int TodayPickUpId { get; set; }
+
+
         public string FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+
         public string LastName { get; set; }
+
+
+        public string StreetAddress { get; set; }
+
+        public int ZipCode { get; set; }
+
+        public string PickUpDate { get; set; }
 
         [Display(Name = "Phone#")]
         public string PhoneNumber { get; set; }
-
-        [DataType(DataType.PostalCode)]
-        public virtual string ZipCode { get; set; }
     }
 }

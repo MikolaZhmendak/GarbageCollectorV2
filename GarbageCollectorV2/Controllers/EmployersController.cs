@@ -10,124 +10,123 @@ using GarbageCollectorV2.Models;
 
 namespace GarbageCollectorV2.Controllers
 {
-    public class CustomersController : Controller
+    public class EmployersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-      
-        public ActionResult Budget()
-        {
-            List<Budget> BudgetList = new List<Budget>();
-            BudgetList = db.Budget.ToList();
-            return View(BudgetList);
-        }
-
-        public ActionResult CustomerHome()
+        public ActionResult AllCustomers()
         {
             return View();
+
         }
-        // GET: Customers
+            
+
+        
+        public ActionResult EmployerHome()
+        {
+            List<TodayPickUp> PickUpList = new List<TodayPickUp>();
+            PickUpList = db.TodayPickUp.ToList();
+            return View(PickUpList);
+
+           
+        }
+        // GET: Employers
         public ActionResult Index()
         {
-            return View(db.Customer.ToList());
+            return View(db.Employer.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Employers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Employer employer = db.Employer.Find(id);
+            if (employer == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(employer);
         }
 
-        // GET: Customers/Create
+        // GET: Employers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Employers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber")] Customer customer)
+        public ActionResult Create([Bind(Include = "EmployerId,FirstName,LastName,PhoneNumber,ZipCode")] Employer employer)
         {
             if (ModelState.IsValid)
             {
-                db.Customer.Add(customer);
+                db.Employer.Add(employer);
                 db.SaveChanges();
-                return RedirectToAction("Welcome");
+                return RedirectToAction("Home");
             }
 
-            return View(customer);
+            return View(employer);
         }
 
-        public ActionResult Welcome()
-        {
-            return View();
-        }
-
-        // GET: Customers/Edit/5
+        // GET: Employers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Employer employer = db.Employer.Find(id);
+            if (employer == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(employer);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Employers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,LastName,StreetAddress,City,State,Zip,PhoneNumber")] Customer customer)
+        public ActionResult Edit([Bind(Include = "EmployerId,FirstName,LastName,PhoneNumber,ZipCode")] Employer employer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(employer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(employer);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Employers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customer.Find(id);
-            if (customer == null)
+            Employer employer = db.Employer.Find(id);
+            if (employer == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(employer);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Employers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customer.Find(id);
-            db.Customer.Remove(customer);
+            Employer employer = db.Employer.Find(id);
+            db.Employer.Remove(employer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
