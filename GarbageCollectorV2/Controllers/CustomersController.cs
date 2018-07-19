@@ -58,10 +58,15 @@ namespace GarbageCollectorV2.Controllers
             {
                 db.Customer.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Welcome");
             }
 
             return View(customer);
+        }
+
+        public ActionResult Welcome()
+        {
+            return View();
         }
 
         // GET: Customers/Edit/5

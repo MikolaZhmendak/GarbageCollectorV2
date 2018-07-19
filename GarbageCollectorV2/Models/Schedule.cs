@@ -37,6 +37,7 @@ namespace GarbageCollectorV2.Models
 
         public enum DayOfTheWeek
         {
+            nopickup,
             Monday,
             Thuesday,
             Wednesday,

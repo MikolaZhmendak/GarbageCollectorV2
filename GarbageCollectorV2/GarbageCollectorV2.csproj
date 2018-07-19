@@ -301,6 +301,7 @@
     <Content Include="Views\Payments\Edit.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
     <Content Include="Views\Customers\CustomerHome.cshtml" />
+    <Content Include="Views\Customers\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
